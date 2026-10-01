@@ -39,3 +39,40 @@
 */
 
 // WRITE YOUR CODE BELOW:
+
+let count = 0;
+let count_label = document.getElementById("countLabel");
+let increase_button = document.getElementById("increaseButton");
+let decrease_button = document.getElementById("decreaseButton");
+let reset_button = document.getElementById("resetButton");
+increaseButton.addEventListener("click", function(){
+    count = count + 1;
+    countLabel.textContent = count;
+});
+decreaseButton.addEventListener("click", function(){
+    count = count - 1;
+    countLabel.textContent = count;
+});
+resetButton.addEventListener("click", function(){
+    count = 0;
+    countLabel.textContent = count;
+});
+let temperatureInput = document.getElementById("temperatureInput");
+let toFahrenheit = document.getElementById("toFahrenheit");
+let toCelsius = document.getElementById("toCelsius");
+let submitButton = document.getElementById("submitButton");
+let result = document.getElementById("result");
+submitButton.addEventListener("click", function(){
+    let temperature = Number(temperatureInput.value);
+    if (toFahrenheit.checked){
+        let fahrenheit = (temperature * 9 / 5) + 32;
+        result.textContent = fahrenheit.toFixed(1) + " °F";
+    }
+    else if (toCelsius.checked) {
+        let celsius = (temperature - 32) * (5 / 9);
+        result.textContent = celsius.toFixed(1) + " °C";
+    } 
+    else {
+        result.textContent = "Please select a unit.";
+    }
+});

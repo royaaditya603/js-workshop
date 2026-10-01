@@ -33,3 +33,23 @@
 */
 
 // WRITE YOUR CODE BELOW:
+
+const clock = document.getElementById('Digital clock');
+
+function timeup(date) {
+    const to = new Date();
+    let hours = to.getHours();
+    let minutes = to.getMinutes();
+    let seconds = to.getSeconds();
+    if (hours < 10) {
+        hours = '0' + String(hours);
+    } else if (minutes < 10) {
+        minutes = '0' + String(minutes);
+    } else if (seconds < 10) {
+        seconds = '0' + String(seconds);
+    }
+    const timeS = `${hours}:${minutes}:${seconds}`;
+    clockDisplay.textContent = timeS;
+
+}
+setInterval(() => { timeup(date); }, 100);
